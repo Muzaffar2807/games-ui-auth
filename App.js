@@ -1,37 +1,16 @@
-import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  SafeAreaView,
-} from "react-native";
-
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-
-import GamingImg from "./src/assets/images/misc/gaming.svg";
-
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./src/screens/HomeScreen";
-import OnboardingScreen from "./src/screens/OnboardingScreen";
 import AuthStack from "./src/Navigation/AuthStack";
+import AppStack from "./src/Navigation/AppStack";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <AuthStack />
+      <AppStack />
+      {/*  <AuthStack /> */}
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
