@@ -1,23 +1,28 @@
-import { View, Text, SafeAreaView, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 
-import LoginSvg from "../assets/images/misc/login.svg";
+import RegistrationSvg from "../assets/images/misc/registration.svg";
 import GoogleSvg from "../assets/images/misc/google.svg";
 import FacebookSvg from "../assets/images/misc/facebook.svg";
 import TwitterSvg from "../assets/images/misc/twitter.svg";
 
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import CustomButton from "../components/CustomButton";
 import InputField from "../components/InputField";
+import CustomButton from "../components/CustomButton";
 
-const LoginScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
       <View style={{ paddingHorizontal: 25 }}>
         <View style={{ alignItems: "center" }}>
-          <LoginSvg
+          <RegistrationSvg
             height={300}
             width={300}
             style={{ transform: [{ rotate: "-5deg" }] }}
@@ -32,8 +37,20 @@ const LoginScreen = ({ navigation }) => {
             marginBottom: 30,
           }}
         >
-          Login
+          Register
         </Text>
+
+        <InputField
+          label={"Full Name"}
+          icon={
+            <Ionicons
+              name="person-outline"
+              size={20}
+              color="#666"
+              style={{ marginRight: 5 }}
+            />
+          }
+        />
 
         <InputField
           label={"Email Address"}
@@ -61,13 +78,26 @@ const LoginScreen = ({ navigation }) => {
           inputType="password"
         />
 
-        <CustomButton label={"Login"} onPress={() => {}} />
+        <InputField
+          label={"Confirm password"}
+          icon={
+            <Ionicons
+              name="lock-closed-outline"
+              size={20}
+              color="#666"
+              style={{ marginRight: 8 }}
+            />
+          }
+          inputType="password"
+        />
 
-        <Text style={{ textAlign: "center", color: "#666", marginBottom: 30 }}>
+       <CustomButton label={'Register'} onPress={() => {}}/>
+
+        {/* <Text style={{ textAlign: "center", color: "#666", marginBottom: 30 }}>
           Or, Login with ...
-        </Text>
+        </Text> */}
 
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -112,7 +142,7 @@ const LoginScreen = ({ navigation }) => {
           >
             <TwitterSvg height={24} width={24} />
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         <View
           style={{
@@ -121,11 +151,9 @@ const LoginScreen = ({ navigation }) => {
             marginBottom: 30,
           }}
         >
-          <Text> New to the App? </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-            <Text style={{ color: "#AD40AF", fontWeight: "700" }}>
-              Register
-            </Text>
+          <Text> Already Registered? </Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Text style={{ color: "#AD40AF", fontWeight: "700" }}>Login</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -133,4 +161,4 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
