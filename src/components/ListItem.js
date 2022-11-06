@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { windowWidth } from "../utils/Dimensions";
 
-const ListItem = ({ photo, title, subTitle, isFree, price}) => {
+const ListItem = ({ photo, title, subTitle, isFree, price, onPress }) => {
   return (
     <View
       style={{
@@ -23,7 +23,7 @@ const ListItem = ({ photo, title, subTitle, isFree, price}) => {
           source={photo}
           style={{ width: 75, height: 75, borderRadius: 10, marginRight: 8 }}
         />
-        <View style={{ width: windowWidth - 220}}>
+        <View style={{ width: windowWidth - 220 }}>
           <Text
             style={{
               color: "#333",
@@ -46,6 +46,7 @@ const ListItem = ({ photo, title, subTitle, isFree, price}) => {
       </View>
 
       <TouchableOpacity
+        onPress={onPress}
         style={{
           backgroundColor: "#0aada8",
           padding: 10,
@@ -59,9 +60,9 @@ const ListItem = ({ photo, title, subTitle, isFree, price}) => {
             textAlign: "center",
             fontSize: 14,
           }}
-        > 
-          { isFree == 'Yes' && 'Play'}
-          { isFree == 'No' && price}
+        >
+          {isFree == "Yes" && "Play"}
+          {isFree == "No" && price}
         </Text>
       </TouchableOpacity>
     </View>

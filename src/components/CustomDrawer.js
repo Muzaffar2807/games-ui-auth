@@ -64,7 +64,7 @@ const CustomDrawer = (props) => {
           </View>
         </TouchableOpacity>
       </View>
-    </View>
+    </View> 
   );
 };
 
