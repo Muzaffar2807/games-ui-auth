@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import React from "react";
 
@@ -20,7 +21,10 @@ import CustomButton from "../components/CustomButton";
 const RegisterScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
-      <View style={{ paddingHorizontal: 25 }}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{ paddingHorizontal: 25 }}
+      >
         <View style={{ alignItems: "center" }}>
           <RegistrationSvg
             height={300}
@@ -38,6 +42,57 @@ const RegisterScreen = ({ navigation }) => {
           }}
         >
           Register
+        </Text>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginBottom: 30,
+          }}
+        >
+          <TouchableOpacity
+            onPress={() => {}}
+            style={{
+              borderColor: "#ddd",
+              borderWidth: 2,
+              borderRadius: 10,
+              paddingHorizontal: 30,
+              paddingVertical: 10,
+            }}
+          >
+            <GoogleSvg height={24} width={24} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => {}}
+            style={{
+              borderColor: "#ddd",
+              borderWidth: 2,
+              borderRadius: 10,
+              paddingHorizontal: 30,
+              paddingVertical: 10,
+            }}
+          >
+            <FacebookSvg height={24} width={24} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => {}}
+            style={{
+              borderColor: "#ddd",
+              borderWidth: 2,
+              borderRadius: 10,
+              paddingHorizontal: 30,
+              paddingVertical: 10,
+            }}
+          >
+            <TwitterSvg height={24} width={24} />
+          </TouchableOpacity>
+        </View>
+
+        <Text style={{ textAlign: "center", color: "#666", marginBottom: 30 }}>
+          Or, register with Email ...
         </Text>
 
         <InputField
@@ -91,7 +146,9 @@ const RegisterScreen = ({ navigation }) => {
           inputType="password"
         />
 
-       <CustomButton label={'Register'} onPress={() => {}}/>
+       
+
+        <CustomButton label={"Register"} onPress={() => {}} />
 
         {/* <Text style={{ textAlign: "center", color: "#666", marginBottom: 30 }}>
           Or, Login with ...
@@ -156,7 +213,7 @@ const RegisterScreen = ({ navigation }) => {
             <Text style={{ color: "#AD40AF", fontWeight: "700" }}>Login</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
