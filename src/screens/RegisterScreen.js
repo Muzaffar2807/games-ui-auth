@@ -146,60 +146,7 @@ const RegisterScreen = ({ navigation }) => {
           inputType="password"
         />
 
-       
-
         <CustomButton label={"Register"} onPress={() => {}} />
-
-        {/* <Text style={{ textAlign: "center", color: "#666", marginBottom: 30 }}>
-          Or, Login with ...
-        </Text> */}
-
-        {/* <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            marginBottom: 30,
-          }}
-        >
-          <TouchableOpacity
-            onPress={() => {}}
-            style={{
-              borderColor: "#ddd",
-              borderWidth: 2,
-              borderRadius: 10,
-              paddingHorizontal: 30,
-              paddingVertical: 10,
-            }}
-          >
-            <GoogleSvg height={24} width={24} />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {}}
-            style={{
-              borderColor: "#ddd",
-              borderWidth: 2,
-              borderRadius: 10,
-              paddingHorizontal: 30,
-              paddingVertical: 10,
-            }}
-          >
-            <FacebookSvg height={24} width={24} />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {}}
-            style={{
-              borderColor: "#ddd",
-              borderWidth: 2,
-              borderRadius: 10,
-              paddingHorizontal: 30,
-              paddingVertical: 10,
-            }}
-          >
-            <TwitterSvg height={24} width={24} />
-          </TouchableOpacity>
-        </View> */}
 
         <View
           style={{

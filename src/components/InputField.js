@@ -3,7 +3,7 @@ import React from "react";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-const InputField = ({ label, icon, inputType, keyboardType }) => {
+const InputField = ({ label, icon, inputType, keyboardType, value, onChangeText }) => {
   return (
     <View
       style={{
@@ -21,12 +21,16 @@ const InputField = ({ label, icon, inputType, keyboardType }) => {
             keyboardType={keyboardType}
             style={{ flex: 1, paddingVertical: 0}}
             secureTextEntry={true}
+            value={value}
+            onChangeText={onChangeText}
         />
       ) : (
         <TextInput 
             placeholder={label}
             keyboardType={keyboardType}
             style={{ flex: 1, paddingVertical: 0}}
+            value={value}
+            onChangeText={onChangeText}
         />
       )}
     </View>

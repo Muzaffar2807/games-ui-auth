@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, TextInput } from "react-native";
-import React from "react";
+import React, { useContext, useState } from "react";
 
 import LoginSvg from "../assets/images/misc/login.svg";
 import GoogleSvg from "../assets/images/misc/google.svg";
@@ -11,8 +11,15 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CustomButton from "../components/CustomButton";
 import InputField from "../components/InputField";
+import { AuthContext } from "../context/AuthContext";
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => { 
+
+  const { login } = useContext(AuthContext);
+
+  const [email, setEmail] = useState(null)
+  const [password, setPassword] = useState(null)
+
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
       <View style={{ paddingHorizontal: 25 }}>
@@ -34,6 +41,7 @@ const LoginScreen = ({ navigation }) => {
         >
           Login
         </Text>
+ 
 
         <InputField
           label={"Email Address"}
@@ -46,6 +54,8 @@ const LoginScreen = ({ navigation }) => {
             />
           }
           keyboardType="email-address"
+          value={email}
+          onChangeText={text => setEmail(text)}
         />
 
         <InputField
@@ -59,9 +69,11 @@ const LoginScreen = ({ navigation }) => {
             />
           }
           inputType="password"
+          value={password}
+          onChangeText={text => setPassword(text)}
         />
 
-        <CustomButton label={"Login"} onPress={() => {}} />
+        <CustomButton label={"Login"} onPress={() => {login(email, password)}} />
 
         <Text style={{ textAlign: "center", color: "#666", marginBottom: 30 }}>
           Or, Login with ...
