@@ -7,11 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Feather from "react-native-vector-icons/Feather";
 import CustomSwitch from "../components/CustomSwitch";
 import ListItem from "../components/ListItem";
 import { freeGames, paidGames } from "../model/data";
+import { AuthContext } from "../context/AuthContext";
 /* DEPRECIETED import Carousel from "react-native-snap-carousel"; */
 
 const HomeScreen = ({ navigation }) => {
@@ -19,6 +20,9 @@ const HomeScreen = ({ navigation }) => {
   const onSelectSwitch = (value) => {
     setGamesTab(value);
   };
+
+
+  const { userInfo } = useContext(AuthContext);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -31,7 +35,7 @@ const HomeScreen = ({ navigation }) => {
           }}
         >
           <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-            Hello John Doe
+            Hello {userInfo.data.name}
           </Text>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <ImageBackground

@@ -19,8 +19,15 @@ export const AuthProvider = ({ children }) => {
       })
       .then((res) => {
         let userInfo = res.data;
+        let userInfoKey = res.headers["authorization"]
         setUserInfo(userInfo);
-        setUserToken(userInfo.data.token)
+        setUserToken(userInfoKey)
+
+        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+        AsyncStorage.setItem('userToken' , userInfoKey);
+
+        /* console.log(userInfo);
+        console.log('User Token' + userInfoKey) */
          
       })
       .catch((e) => {
@@ -32,6 +39,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setIsLoading(true);
     setUserToken(null);
+    AsyncStorage.removeItem("userInfo");
     AsyncStorage.removeItem("userToken");
     setIsLoading(false);
   };
@@ -39,8 +47,14 @@ export const AuthProvider = ({ children }) => {
   const isLoggedIn = async () => {
     try {
       setIsLoading(true);
-      let userToken = AsyncStorage.getItem("userToken");
-      setUserToken(userToken);
+      let userInfo = await AsyncStorage.getItem("userInfo");
+      let userToken = await AsyncStorage.getItem("userToken");
+      userInfo = JSON.parse(userInfo);
+
+      if(userInfo){
+        setUserToken(userToken);
+        setUserInfo(userInfo )
+      }
       setIsLoading(false);
     } catch (e) {
       console.log(`isLogged in error ${e}`);
@@ -52,7 +66,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ login, logout, isLoading, userToken }}>
+    <AuthContext.Provider value={{ login, logout, isLoading, userToken, userInfo }}>
       {children}
     </AuthContext.Provider>
   );
