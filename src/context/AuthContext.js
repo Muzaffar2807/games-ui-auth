@@ -44,6 +44,23 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(false);
   };
 
+  const register = (name, email, username, password) => {
+    setIsLoading(true);
+    axios
+      .post(`${BASE_URL}/auth/signup`, {
+        name,
+        email,
+        username,
+        password
+      }).then((res) => {
+        console.log('registered')
+      })
+      .catch(e => {
+        console.log(`Register Error ${e}`)
+      }) 
+    setIsLoading(false)
+  }
+
   const isLoggedIn = async () => {
     try {
       setIsLoading(true);
@@ -66,7 +83,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ login, logout, isLoading, userToken, userInfo }}>
+    <AuthContext.Provider value={{ login, logout, register, isLoading, userToken, userInfo }}>
       {children}
     </AuthContext.Provider>
   );

@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useContext, useState } from "react";
 
 import RegistrationSvg from "../assets/images/misc/registration.svg";
 import GoogleSvg from "../assets/images/misc/google.svg";
@@ -17,8 +17,17 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import InputField from "../components/InputField";
 import CustomButton from "../components/CustomButton";
+import { AuthContext } from "../context/AuthContext";
 
 const RegisterScreen = ({ navigation }) => {
+
+  const { register } = useContext(AuthContext);
+
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [username, setUserName] = useState(null);
+  const [password, setPassword] = useState(null);
+
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
       <ScrollView
@@ -105,6 +114,8 @@ const RegisterScreen = ({ navigation }) => {
               style={{ marginRight: 5 }}
             />
           }
+          value={name}
+          onChangeText={text => setName(text)}
         />
 
         <InputField
@@ -118,6 +129,23 @@ const RegisterScreen = ({ navigation }) => {
             />
           }
           keyboardType="email-address"
+          value={email}
+          onChangeText={text => setEmail(text)}
+        />
+
+        <InputField
+          label={"User Name"}
+          icon={
+            <MaterialIcons
+              name="person-outline"
+              size={20}
+              color="#666"
+              style={{ marginRight: 8 }}
+            />
+          }
+          keyboardType="email-address"
+          value={username}
+          onChangeText={ text => setUserName(text)}
         />
 
         <InputField
@@ -131,22 +159,11 @@ const RegisterScreen = ({ navigation }) => {
             />
           }
           inputType="password"
+          value={password}
+          onChangeText={text => setPassword(text)}
         />
 
-        <InputField
-          label={"Confirm password"}
-          icon={
-            <Ionicons
-              name="lock-closed-outline"
-              size={20}
-              color="#666"
-              style={{ marginRight: 8 }}
-            />
-          }
-          inputType="password"
-        />
-
-        <CustomButton label={"Register"} onPress={() => {}} />
+        <CustomButton label={"Register"} onPress={() => {register(name, email, username, password)}} />
 
         <View
           style={{
