@@ -13,6 +13,7 @@ import CustomSwitch from "../components/CustomSwitch";
 import ListItem from "../components/ListItem";
 import { freeGames, paidGames } from "../model/data";
 import { AuthContext } from "../context/AuthContext";
+import SafeViewAndroid from "../components/SafeViewAndroid";
 /* DEPRECIETED import Carousel from "react-native-snap-carousel"; */
 
 const HomeScreen = ({ navigation }) => {
@@ -25,7 +26,7 @@ const HomeScreen = ({ navigation }) => {
   const { userInfo } = useContext(AuthContext);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <ScrollView style={{ padding: 20 }}>
         <View
           style={{

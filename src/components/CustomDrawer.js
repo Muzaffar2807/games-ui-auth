@@ -59,12 +59,11 @@ const CustomDrawer = ({ navigation }) => {
               flexDirection: "row",
               alignItems: "center",
               alignContent: "center",
-              margin: 5,
-              backgroundColor: "#aa18ea",
+              margin: 5, 
             }}
           >
-            <Ionicons name="home-outline" size={21} color="#FFF" />
-            <Text style={{ color: "#FFF", marginLeft: 5 }}>Home</Text>
+            <Ionicons name="home-outline" size={21}   />
+            <Text style={{  marginLeft: 8 }}>Home</Text>
           </Pressable>
 
             <Pressable
@@ -78,7 +77,7 @@ const CustomDrawer = ({ navigation }) => {
             }}
           >
             <Feather name="shopping-bag"    size={21} />
-            <Text style={{   marginLeft: 5 }}>Cart</Text>
+            <Text style={{   marginLeft: 8 }}>Cart</Text>
           </Pressable>
 
           <Pressable
@@ -92,7 +91,7 @@ const CustomDrawer = ({ navigation }) => {
             }}
           >
             <Ionicons name="heart-outline"   size={21} />
-            <Text style={{  marginLeft: 5 }}>Favorite</Text>
+            <Text style={{  marginLeft: 8 }}>Favorite</Text>
           </Pressable>
         </View>
       </DrawerContentScrollView>
