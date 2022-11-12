@@ -139,6 +139,7 @@ const LoginScreen = ({ navigation }) => {
               Register
             </Text>
           </TouchableOpacity>
+          
         </View>
       </View>
     </SafeAreaView>

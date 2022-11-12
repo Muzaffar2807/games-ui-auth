@@ -9,6 +9,7 @@ import FavoriteScreen from "../screens/FavoriteScreen";
 import Feather from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import GameDetailsScreen from "../screens/GameDetailsScreen";
+import ChatScreen from "../screens/ChatScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -56,12 +57,21 @@ const TabNavigator = () => {
           ),
         })}
       />
+       <Tab.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          tabBarBadge: 3,
+          tabBarBadgeStyle: { backgroundColor: "yellow" },
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="chatbox-outline" color={color} size={size} />
+          ),
+        }}
+      />
       <Tab.Screen
         name="Cart"
         component={CartScreen}
         options={{
-          tabBarBadge: 3,
-          tabBarBadgeStyle: { backgroundColor: "yellow" },
           tabBarIcon: ({ color, size }) => (
             <Feather name="shopping-bag" color={color} size={size} />
           ),
@@ -76,6 +86,7 @@ const TabNavigator = () => {
           ),
         }}
       />
+      
     </Tab.Navigator>
   );
 };

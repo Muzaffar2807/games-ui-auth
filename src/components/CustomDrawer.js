@@ -66,6 +66,20 @@ const CustomDrawer = ({ navigation }) => {
             <Text style={{  marginLeft: 8 }}>Home</Text>
           </Pressable>
 
+          <Pressable
+            onPress={() => navigation.navigate("Chat")}
+            style={{
+              padding: 8,
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+              margin: 5, 
+            }}
+          >
+            <Ionicons name="chatbox-outline" size={21}   />
+            <Text style={{  marginLeft: 8 }}>Chat</Text>
+          </Pressable>
+
             <Pressable
             onPress={() => navigation.navigate("Cart")}
             style={{

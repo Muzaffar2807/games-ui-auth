@@ -173,7 +173,7 @@ const RegisterScreen = ({ navigation }) => {
           }}
         >
           <Text> Already Registered? </Text>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
             <Text style={{ color: "#AD40AF", fontWeight: "700" }}>Login</Text>
           </TouchableOpacity>
         </View>
