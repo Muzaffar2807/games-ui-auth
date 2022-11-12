@@ -4,6 +4,7 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import React, { useContext } from "react";
 import {
@@ -14,14 +15,15 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { AuthContext } from "../context/AuthContext";
+import Feather from "react-native-vector-icons/Feather";
 
-const CustomDrawer = (props) => {
+const CustomDrawer = ({ navigation }) => {
   const { logout, userInfo } = useContext(AuthContext);
 
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
-        {...props}
+        /* {...props} */
         contentContainerStyle={{ backgroundColor: "#8200d6" }}
       >
         <ImageBackground
@@ -48,7 +50,50 @@ const CustomDrawer = (props) => {
         </ImageBackground>
 
         <View style={{ flex: 1, backgroundColor: "#fff", paddingTop: 10 }}>
-          <DrawerItemList {...props} />
+          {/* <DrawerItemList {...props} /> */}
+
+          <Pressable
+            onPress={() => navigation.navigate("Home2")}
+            style={{
+              padding: 8,
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+              margin: 5,
+              backgroundColor: "#aa18ea",
+            }}
+          >
+            <Ionicons name="home-outline" size={21} color="#FFF" />
+            <Text style={{ color: "#FFF", marginLeft: 5 }}>Home</Text>
+          </Pressable>
+
+            <Pressable
+            onPress={() => navigation.navigate("Cart")}
+            style={{
+              padding: 8,
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+              margin: 5, 
+            }}
+          >
+            <Feather name="shopping-bag"    size={21} />
+            <Text style={{   marginLeft: 5 }}>Cart</Text>
+          </Pressable>
+
+          <Pressable
+            onPress={() => navigation.navigate("Favorite")}
+            style={{
+              padding: 8,
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+              margin: 5, 
+            }}
+          >
+            <Ionicons name="heart-outline"   size={21} />
+            <Text style={{  marginLeft: 5 }}>Favorite</Text>
+          </Pressable>
         </View>
       </DrawerContentScrollView>
 
@@ -60,7 +105,12 @@ const CustomDrawer = (props) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => {logout()}} style={{ paddingVertical: 12 }}>
+        <TouchableOpacity
+          onPress={() => {
+            logout();
+          }}
+          style={{ paddingVertical: 12 }}
+        >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Ionicons name="exit-outline" size={22} />
             <Text style={{ fontSize: 15, marginLeft: 5 }}>Sign Out</Text>

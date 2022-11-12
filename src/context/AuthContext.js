@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
         username,
         password
       }).then((res) => {
-        console.log('registered')
+        console.log(`Registered`)
       })
       .catch(e => {
         console.log(`Register Error ${e}`)
