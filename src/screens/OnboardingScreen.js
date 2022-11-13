@@ -32,7 +32,7 @@ const OnboardingScreen = ({ navigation }) => {
         </View>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate("Register")}
+          onPress={() => navigation.navigate("Login")}
           style={{
             backgroundColor: "#AD40AF",
             padding: 20,

@@ -1,11 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useState, useEffect, createContext } from "react";
 import axios from "axios";
-import { BASE_URL } from "../config";
+import { BASE_URL } from "../config"; 
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children, navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [userToken, setUserToken] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
@@ -53,7 +53,15 @@ export const AuthProvider = ({ children }) => {
         username,
         password
       }).then((res) => {
-        console.log(`Registered`)
+        console.log(`Registered`); 
+        
+       let userInfo = res.data;
+        let userInfoKey = res.headers["authorization"]
+        setUserInfo(userInfo);
+        setUserToken(userInfoKey)
+
+        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+        AsyncStorage.setItem('userToken' , userInfoKey); 
       })
       .catch(e => {
         console.log(`Register Error ${e}`)

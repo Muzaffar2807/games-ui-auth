@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, TextInput } from "react-native";
+import { View, Text, SafeAreaView, TouchableOpacity} from "react-native";
 import React, { useContext, useState } from "react";
 
 import LoginSvg from "../assets/images/misc/login.svg";
@@ -8,7 +8,6 @@ import TwitterSvg from "../assets/images/misc/twitter.svg";
 
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import CustomButton from "../components/CustomButton";
 import InputField from "../components/InputField";
 import { AuthContext } from "../context/AuthContext";
@@ -133,7 +132,9 @@ const LoginScreen = ({ navigation }) => {
             marginBottom: 30,
           }}
         >
+
           <Text> New to the App? </Text>
+          
           <TouchableOpacity onPress={() => navigation.navigate("Register")}>
             <Text style={{ color: "#AD40AF", fontWeight: "700" }}>
               Register

@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
           }}
         >
           <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-            Hello {userInfo.data.name}
+            Hello, {userInfo.data.name}
           </Text>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <ImageBackground
