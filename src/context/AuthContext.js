@@ -53,15 +53,8 @@ export const AuthProvider = ({ children, navigation }) => {
         username,
         password
       }).then((res) => {
-        console.log(`Registered`); 
-        
-       let userInfo = res.data;
-        let userInfoKey = res.headers["authorization"]
-        setUserInfo(userInfo);
-        setUserToken(userInfoKey)
-
-        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-        AsyncStorage.setItem('userToken' , userInfoKey); 
+        console.log(`Registered`);  
+        navigation.navigate('Login')
       })
       .catch(e => {
         console.log(`Register Error ${e}`)

@@ -20,7 +20,6 @@ import CustomButton from "../components/CustomButton";
 import { AuthContext } from "../context/AuthContext";
 
 const RegisterScreen = ({ navigation }) => {
-
   const { register } = useContext(AuthContext);
 
   const [name, setName] = useState(null);
@@ -115,7 +114,7 @@ const RegisterScreen = ({ navigation }) => {
             />
           }
           value={name}
-          onChangeText={text => setName(text)}
+          onChangeText={(text) => setName(text)}
         />
 
         <InputField
@@ -130,7 +129,7 @@ const RegisterScreen = ({ navigation }) => {
           }
           keyboardType="email-address"
           value={email}
-          onChangeText={text => setEmail(text)}
+          onChangeText={(text) => setEmail(text)}
         />
 
         <InputField
@@ -145,7 +144,7 @@ const RegisterScreen = ({ navigation }) => {
           }
           keyboardType="email-address"
           value={username}
-          onChangeText={ text => setUserName(text)}
+          onChangeText={(text) => setUserName(text)}
         />
 
         <InputField
@@ -160,10 +159,16 @@ const RegisterScreen = ({ navigation }) => {
           }
           inputType="password"
           value={password}
-          onChangeText={text => setPassword(text)}
+          onChangeText={(text) => setPassword(text)}
         />
 
-        <CustomButton label={"Register"} onPress={() => {register(name, email, username, password)}} />
+        <CustomButton
+          label={"Register"}
+          onPress={() => {
+            register(name, email, username, password);
+          }}
+          navigation={navigation}
+        />
 
         <View
           style={{
